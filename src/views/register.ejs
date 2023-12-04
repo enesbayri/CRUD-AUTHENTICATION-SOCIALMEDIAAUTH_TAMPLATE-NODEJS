@@ -1,0 +1,88 @@
+<% if (hatalar) { %>
+    <% for( let index = 0; index < hatalar.length; index++ ) { %>
+        <div class="alert alert-danger">  <i class="fas fa-exclamation-triangle"></i>   <%-hatalar[index].msg %>
+
+            <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Kapat</span></button>
+        </div>
+    <% } %>
+<% } %>
+<div class="container">
+
+    <div class="card o-hidden border-0 shadow-lg my-5">
+        <div class="card-body p-0">
+            <!-- Nested Row within Card Body -->
+            <div class="row">
+                <div class="col-lg-5 d-none d-lg-block bg-register-image"></div>
+                <div class="col-lg-7">
+                    <div class="p-5">
+                        <div class="text-center">
+                            <h1 class="h4 text-gray-900 mb-4">Hesap Oluşturun!</h1>
+                        </div>
+                        <form class="user" action="/register" method="post">
+                            <div class="form-group row">
+                                <div class="col-sm-6 mb-3 mb-sm-0">
+                                    <input type="text" class="form-control form-control-user" id="exampleFirstName"
+                                        placeholder="Adınız"
+                                        name="ad"
+                                        value=<%= typeof formValues!='undefined' &&formValues.ad !=undefined ? " " : (typeof gelenValues!="undefined" ? gelenValues.ad : " ") %>
+                                        >
+                                        <%# DİREK formValues.ad gelmişmi diye kontol edemiyoruz. önce formValues varmı ona sonra && ile ve diyip formValues.ad ı kontrol %>
+                                </div>
+                                <div class="col-sm-6">
+                                    <input type="text" class="form-control form-control-user" id="exampleLastName"
+                                        placeholder="Soyadınız"
+                                        name="soyad"
+                                        value=<%= typeof formValues!='undefined' &&formValues.soyad !=undefined ? " " : (typeof gelenValues!="undefined" ? gelenValues.soyad : " ") %>
+                                        >
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" class="form-control form-control-user" id="exampleInputEmail"
+                                    placeholder="E-mail adresiniz"
+                                    name="email"
+                                    value=<%= typeof formValues!='undefined' &&formValues.email !=undefined ? " " : (typeof gelenValues!="undefined" ? gelenValues.email : " ") %>
+                                    >
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-sm-6 mb-3 mb-sm-0">
+                                    <input type="password" class="form-control form-control-user"
+                                        placeholder="Şifreniz"
+                                        name="sifre"
+                                        id="exampleInputPassword" 
+                                        value=<%= typeof formValues!='undefined' &&formValues.sifre !=undefined ? " " : (typeof gelenValues!="undefined" ? gelenValues.sifre : " ") %>
+                                        >
+                                </div>
+                                <div class="col-sm-6">
+                                    <input type="password" class="form-control form-control-user"
+                                        placeholder="Şifrenizi tekrar giriniz"
+                                        name="resifre"
+                                        id="exampleRepeatPassword" 
+                                        value=<%= typeof formValues!='undefined' &&formValues.resifre !=undefined ? " " : (typeof gelenValues!="undefined" ? gelenValues.resifre : " ") %>
+                                        >
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-user btn-block">
+                                Hesap Oluştur
+                            </button>
+                            <hr>
+                            <a href="#" class="btn btn-google btn-user btn-block">
+                                <i class="fab fa-google fa-fw"></i> Google ile giriş yap!
+                            </a>
+                            <a href="#" class="btn btn-facebook btn-user btn-block">
+                                <i class="fab fa-facebook-f fa-fw"></i> Facebook ile giriş Yap
+                            </a>
+                        </form>
+                        <hr>
+                        <div class="text-center">
+                            <a class="small" href="/register">Hesap Oluştur!</a>
+                        </div>
+                        <div class="text-center">
+                            <a class="small" href="/login">Hesabınız var mı? Giriş yapın!</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
